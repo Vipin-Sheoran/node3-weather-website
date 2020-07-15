@@ -4,6 +4,7 @@ body{
     color:#333333;
     padding: 0 16px;
     max-width: 650px;
+    background-image: url('C:\Users\Praveen\Desktop\node_workspace\web-server\public\img\gg.jpg');
 
     display: flex;
     flex-direction: column;
