@@ -10,9 +10,11 @@ else if(body.error){
     callback('please enter valid details',undefined)
 }
 else{
-    callback(undefined,forecastdata=body.daily[0].weather[0].description+' throughout the day. Current temperature is '+body.current.temp+' degrees. Wind speed is '+body.current.wind_speed+' m/s.'+  
-    '  Highest-Temperature : '+body.daily[0].temp.max+'  Lowest-Temperature : '+body.daily[0].temp.min)
+    callback(undefined,{forecastdata:body.daily[0].weather[0].description+' throughout the day. Current temperature is '+body.current.temp+' degrees. Wind speed is '+body.current.wind_speed+' m/s.',  
+      highest:'Highest-Temperature : '+body.daily[0].temp.max,  
+      lowest:'Lowest-Temperature : '+body.daily[0].temp.min
+    })
        }
 })
 } 
-module.exports=forecast
+module.exports=forecast 
