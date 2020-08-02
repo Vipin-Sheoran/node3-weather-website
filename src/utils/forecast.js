@@ -1,4 +1,4 @@
-const request = require("request")
+const request = require("request") 
 
 const forecast=(latitude,longitude,callback)=>{
     const url='https://api.openweathermap.org/data/2.5/onecall?lat='+latitude+'&lon='+longitude+'&units=metric&appid=d40d5ec821d1ca9db02a80c0066178f3'

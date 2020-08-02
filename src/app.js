@@ -8,6 +8,8 @@ const port=process.env.PORT || 3000
 
 const geocode = require('./utils/geocode')
 const forecast = require('./utils/forecast')
+const geolocation=require('./utils/geolocation')
+const forecast2=require('./utils/forecast2')
 
 //define path for express config
 const publicdir=path.join(__dirname,'../public')   
@@ -72,6 +74,24 @@ app.get('/weather',(req,res)=>{
         })
         })
     })
+//     geolocation((position)=>{
+//     forecast2(position.latitude,position.longitude,(error,{forecastdata,highest,lowest})=>{
+//         if(error){
+//             return res.send({
+//                 error
+//             })
+//         }
+//         res.send({
+//             forecast:forecastdata,
+//             location,
+//             highest,
+//             lowest,
+
+//             address:req.query.address
+//         })
+//     })
+// })
+
 app.get('/products',(req,res)=>{
     if(!req.query.search){
         return res.send({

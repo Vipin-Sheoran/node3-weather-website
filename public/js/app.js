@@ -12,9 +12,21 @@ const messagetwo=document.querySelector('#message-2')
 const messagethree=document.querySelector('#msg-3')
 const messagefour=document.querySelector('#msg-4')
 
+document.querySelector('#send-location').addEventListener('click',()=>{
+    if(!navigator.geolocation){
+        return alert('Geolocation is not supported by your browser.')
+    }
+    navigator.geolocation.getCurrentPosition((position)=>{
+      
+        messageone.textContent=position.coords.latitude,
+        messagetwo.textContent=position.coords.longitude
+       //)
+          })
+})
+
 weatherform.addEventListener('submit',(e)=>{
-    e.preventDefault()
-    const location=search.value
+    e.preventDefault()   //to prevent behaviour of browser which it shows during refreshing
+    const location=search.value    //value gives us the value is is written in input box
     messageone.textContent='loading...'
     messagetwo.textContent=''
     messagethree.textContent=''
