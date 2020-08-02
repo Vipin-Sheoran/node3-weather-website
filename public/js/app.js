@@ -12,14 +12,21 @@ const messagetwo=document.querySelector('#message-2')
 const messagethree=document.querySelector('#msg-3')
 const messagefour=document.querySelector('#msg-4')
 
+document.querySelector('#send-location').addEventListener('click',(e)=>{
+e.preventDefault()
+messageone.textContent='loading...'
+    messagetwo.textContent=''
+    messagethree.textContent=''
+    messagefour.textContent=''
+})
 document.querySelector('#send-location').addEventListener('click',()=>{
     if(!navigator.geolocation){
         return alert('Geolocation is not supported by your browser.')
     }
     navigator.geolocation.getCurrentPosition((position)=>{
       
-        messageone.textContent=position.coords.latitude,
-        messagetwo.textContent=position.coords.longitude
+        messageone.textContent=`Latitude:${position.coords.latitude}`,
+        messagetwo.textContent=`Longitude:${position.coords.longitude}`
        //)
           })
 })
