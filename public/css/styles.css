@@ -4,7 +4,9 @@ body{
     color:#333333;
     padding: 0 16px;
     max-width: 650px;
-    background-image: url('C:\Users\Praveen\Desktop\node_workspace\web-server\public\img\gg.jpg');
+    background-image: url('../img/sky.jpg');
+    background-position: center;
+    background-size: cover;
 
     display: flex;
     flex-direction: column;
@@ -26,6 +28,11 @@ header a{
     margin-right: 16px;
     text-decoration: none;
 }
+header a:hover{
+    color:#F50014;
+    margin-right: 16px;
+    text-decoration-color: black;
+}
 .portrait{
     width: 250px;
 }
@@ -44,6 +51,14 @@ button{
     cursor: pointer;
     border:1px solid #888888;
     background: #888888;
+    color:white;
+    padding:8px;
+}
+
+button:hover{
+    cursor: pointer;
+    border:1px solid #888888;
+    background:#DE7621;
     color:white;
     padding:8px;
 }

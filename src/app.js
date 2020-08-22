@@ -8,8 +8,9 @@ const port=process.env.PORT || 3000
 
 const geocode = require('./utils/geocode')
 const forecast = require('./utils/forecast')
-const geolocation=require('./utils/geolocation')
-const forecast2=require('./utils/forecast2')
+// const geo=require('../public/js/app.js')
+// const geolocation=require('./utils/geolocation')
+// const forecast2=require('./utils/forecast2')
 
 //define path for express config
 const publicdir=path.join(__dirname,'../public')   
@@ -48,7 +49,7 @@ app.get('/help',(req,res)=>{
 app.get('/weather',(req,res)=>{
     if(!req.query.address){
       return  res.send({
-          error:'You must provide an address'})
+          error:'You must provide an address'}) 
     }
 
     geocode(req.query.address,(error,{latitude,longitude,location}={})=>{
@@ -74,6 +75,9 @@ app.get('/weather',(req,res)=>{
         })
         })
     })
+    
+
+  
 //     geolocation((position)=>{
 //     forecast2(position.latitude,position.longitude,(error,{forecastdata,highest,lowest})=>{
 //         if(error){
@@ -90,7 +94,7 @@ app.get('/weather',(req,res)=>{
 //             address:req.query.address
 //         })
 //     })
-// })
+// }) 
 
 app.get('/products',(req,res)=>{
     if(!req.query.search){

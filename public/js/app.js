@@ -18,16 +18,13 @@ messageone.textContent='loading...'
     messagetwo.textContent=''
     messagethree.textContent=''
     messagefour.textContent=''
-})
-document.querySelector('#send-location').addEventListener('click',()=>{
+
     if(!navigator.geolocation){
         return alert('Geolocation is not supported by your browser.')
     }
     navigator.geolocation.getCurrentPosition((position)=>{
-      
         messageone.textContent=`Latitude:${position.coords.latitude}`,
         messagetwo.textContent=`Longitude:${position.coords.longitude}`
-       //)
           })
 })
 
@@ -50,6 +47,6 @@ weatherform.addEventListener('submit',(e)=>{
             messagethree.textContent=data.highest
             messagefour.textContent=data.lowest
         }
-    })
+    }) 
 })
 })
