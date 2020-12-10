@@ -46,6 +46,26 @@ app.get('/help',(req,res)=>{
     }) 
 })
 
+app.get('/loc',(req,res)=>{
+console.log(req.query)
+    forecast(req.query.lat,req.query.lon,(error,{forecastdata,highest,lowest})=>{
+        if(error){
+            return res.send({
+                error
+            })
+        }
+        res.send({
+            forecast:forecastdata,
+            // location,
+            highest,
+            lowest,
+
+            // address:req.query.address
+        })
+    })
+    
+    })
+
 app.get('/weather',(req,res)=>{
     if(!req.query.address){
       return  res.send({
@@ -57,7 +77,8 @@ app.get('/weather',(req,res)=>{
            return res.send({error})
         }
        
-            
+
+            console.log(req.query)
         forecast(latitude,longitude,(error,{forecastdata,highest,lowest})=>{
             if(error){
                 return res.send({

@@ -23,12 +23,30 @@ messageone.textContent='loading...'
         return alert('Geolocation is not supported by your browser.')
     }
     navigator.geolocation.getCurrentPosition((position)=>{
-        messageone.textContent=`Latitude:${position.coords.latitude}`,
-        messagetwo.textContent=`Longitude:${position.coords.longitude}`
+        const latitude=position.coords.latitude
+        const longitude=position.coords.longitude
+        messageone.textContent='loading...'
+    messagetwo.textContent=''
+    messagethree.textContent=''
+    messagefour.textContent=''
+        fetch('/loc?lat='+latitude+'&lon='+longitude).then((response)=>{ 
+            response.json().then((data)=>{
+                if(data.error){
+                    messageone.textContent=data.error
+                }else{
+                    messageone.textContent=''
+                    messagetwo.textContent=data.forecast
+                    messagethree.textContent=data.highest
+                    messagefour.textContent=data.lowest
+                }
+            }) 
+        })
           })
+
+          
 })
 
-weatherform.addEventListener('submit',(e)=>{
+weatherform.addEventListener('submit',(e)=>{ 
     e.preventDefault()   //to prevent behaviour of browser which it shows during refreshing
     const location=search.value    //value gives us the value is is written in input box
     messageone.textContent='loading...'

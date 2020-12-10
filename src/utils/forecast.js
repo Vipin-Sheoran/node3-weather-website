@@ -17,4 +17,4 @@ else{
        }
 })
 } 
-module.exports=forecast 
+module.exports=forecast  

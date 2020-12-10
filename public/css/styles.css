@@ -4,13 +4,13 @@ body{
     color:#333333;
     padding: 0 16px;
     max-width: 650px;
-    background-image: url('../img/sky.jpg');
+    /* background-image: url('../img/sky.jpg'); */
     background-position: center;
     background-size: cover;
 
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    min-height: 90vh;
 }
 .main-content{
     flex-grow: 1;
@@ -61,4 +61,11 @@ button:hover{
     background:#DE7621;
     color:white;
     padding:8px;
+}
+
+@media(min-width:500px){
+    .body{
+        background-image: url('../img/night.jpg');
+        background-position-y: center;
+    }
 }
